@@ -1,0 +1,74 @@
+{
+  "name": "findir",
+  "displayName": "FinDir",
+  "description": "Browse through directories in your workspace",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.80.1"
+  },
+  "categories": [
+    "Other"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "findir.finDir",
+        "title": "FinDir: Browse directories"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "findir.finDir",
+        "key": "shift+cmd+l"
+      }
+    ],
+    "configuration": {
+      "type": "object",
+      "title": "FinDir configuration",
+      "properties": {
+        "finDir.includeReg": {
+          "type": "string",
+          "default": "**",
+          "description": "A glob pattern that defines the directories to search for."
+        },
+        "finDir.excludeReg": {
+          "type": "string",
+          "default": "**/node_modules/**",
+          "description": "A glob pattern that defines files and folders to exclude."
+        },
+        "finDir.limit": {
+          "type": "number",
+          "default": 1000,
+          "description": "A limit for the result."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src --ext ts",
+    "test": "node ./out/test/runTest.js"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.1",
+    "@types/node": "20.2.5",
+    "@types/vscode": "^1.81.0",
+    "@typescript-eslint/eslint-plugin": "^5.59.8",
+    "@typescript-eslint/parser": "^5.59.8",
+    "@vscode/test-electron": "^2.3.2",
+    "eslint": "^8.41.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "glob": "^8.1.0",
+    "mocha": "^10.2.0",
+    "typescript": "^5.1.3"
+  },
+  "dependencies": {
+    "prettier": "^3.0.2"
+  }
+}
