@@ -20,7 +20,7 @@
     "keybindings": [
       {
         "command": "findir.finDir",
-        "key": "shift+cmd+l"
+        "key": "cmd+l"
       }
     ],
     "configuration": {
@@ -39,8 +39,18 @@
         },
         "finDir.limit": {
           "type": "number",
-          "default": 1000,
+          "default": 1000000,
           "description": "A limit for the result."
+        },
+        "finDir.forbidFileExt": {
+          "type": "array",
+          "default": ["png", "jpg"],
+          "description": "Forbidden file extensions"
+        },
+        "finDir.forbidDir": {
+          "type": "array",
+          "default": [".vscode", "node_modules", "out", "dist", "build", "public"],
+          "description": "Forbidden directory names"
         }
       }
     }

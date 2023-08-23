@@ -1,5 +1,5 @@
-import { finDirId, finDirCallback } from './findir';
 import type { Config } from '../config';
+import { finDirId, finDirCallback } from './findir';
 
 interface Command {
   id: string;

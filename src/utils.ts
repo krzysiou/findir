@@ -1,12 +1,11 @@
-const getDirName = (file: string): string => {
-  const rightForwardSlash = file.lastIndexOf('/');
-  const leftForwardSlash = file
-    .substring(0, rightForwardSlash)
-    .lastIndexOf('/');
+const getDir = (file: string, workspacePath: string) => {
+  const filePath = file.replace(workspacePath, '');
+  const endOfDir = filePath.lastIndexOf('/');
+  const directoryPath = filePath.substring(1, endOfDir);
+  const startOfDir = directoryPath.lastIndexOf('/');
+  const directoryName = directoryPath.substring(startOfDir + 1, endOfDir);
 
-  const label = file.substring(leftForwardSlash + 1, rightForwardSlash);
-
-  return label;
+  return { label: directoryName, description: directoryPath };
 };
 
-export { getDirName };
+export { getDir };
