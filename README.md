@@ -1,3 +1,3 @@
 # findir README
 
-Testing
+First readme version
