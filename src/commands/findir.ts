@@ -59,6 +59,8 @@ const callback = (config: Config) => () => {
         }
       });
 
+      directories.sort((a, b) => a.label.localeCompare(b.label));
+
       window
         .showQuickPick(directories, {
           placeHolder: 'Search directories by name',
